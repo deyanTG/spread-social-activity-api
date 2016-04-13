@@ -11,8 +11,12 @@ import uni.social.app.repository.UserRepository;
 
 public class RepositoryUserDetailsService implements UserDetailsService {
 
-	@Autowired
 	private UserRepository repository;
+
+	@Autowired
+	public RepositoryUserDetailsService(UserRepository repository) {
+		this.repository = repository;
+	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
