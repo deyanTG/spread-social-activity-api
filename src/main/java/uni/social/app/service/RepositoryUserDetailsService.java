@@ -1,6 +1,7 @@
 package uni.social.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,12 +12,9 @@ import uni.social.app.repository.UserRepository;
 
 public class RepositoryUserDetailsService implements UserDetailsService {
 
-	private UserRepository repository;
-
 	@Autowired
-	public RepositoryUserDetailsService(UserRepository repository) {
-		this.repository = repository;
-	}
+	@Qualifier("userRepo")
+	private UserRepository repository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

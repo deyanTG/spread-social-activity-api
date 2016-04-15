@@ -10,11 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "social_user")
+public class User extends BaseEntity<Long> {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name = "email", length = 100, nullable = false, unique = true)
@@ -95,6 +95,49 @@ public class User {
 
 	public void setSignInProvider(SocialMediaService signInProvider) {
 		this.signInProvider = signInProvider;
+	}
+
+	public static Builder getBuilder() {
+		return new Builder();
+	}
+
+	public static class Builder {
+
+		private User user;
+
+		public Builder() {
+			user = new User();
+			user.role = UserRole.ROLE_USER;
+		}
+
+		public Builder email(String email) {
+			user.email = email;
+			return this;
+		}
+
+		public Builder firstName(String firstName) {
+			user.firstName = firstName;
+			return this;
+		}
+
+		public Builder lastName(String lastName) {
+			user.lastName = lastName;
+			return this;
+		}
+
+		public Builder password(String password) {
+			user.password = password;
+			return this;
+		}
+
+		public Builder signInProvider(SocialMediaService signInProvider) {
+			user.signInProvider = signInProvider;
+			return this;
+		}
+
+		public User build() {
+			return user;
+		}
 	}
 
 }

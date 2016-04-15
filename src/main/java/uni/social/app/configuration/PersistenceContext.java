@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.jolbox.bonecp.BoneCPDataSource;
 
 @Configuration
-@EnableJpaRepositories(basePackages = { "uni.social.app.model" })
+@EnableJpaRepositories(basePackages = { "uni.social.app.model", "uni.social.app.repository" })
 @EnableTransactionManagement
 public class PersistenceContext {
 
