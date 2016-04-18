@@ -40,7 +40,7 @@ public class RegistrationController {
 
 	protected static final String ERROR_CODE_EMAIL_EXIST = "NotExist.user.email";
 	protected static final String MODEL_NAME_REGISTRATION_DTO = "user";
-	protected static final String VIEW_NAME_REGISTRATION_PAGE = "user/registrationForm";
+	protected static final String VIEW_NAME_REGISTRATION_PAGE = "registrationForm";
 
 	@RequestMapping(value = "/user/register", method = RequestMethod.GET)
 	public String showRegistrationForm(WebRequest request, Model model) {

@@ -15,6 +15,8 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import com.opensymphony.sitemesh.webapp.SiteMeshFilter;
+
 public class ApplicationConfigInitializer implements WebApplicationInitializer {
 
 	@Override
@@ -40,11 +42,11 @@ public class ApplicationConfigInitializer implements WebApplicationInitializer {
 		FilterRegistration.Dynamic security = servletContext.addFilter("springSecurityFilterChain",
 				new DelegatingFilterProxy());
 		security.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
-
-		// FilterRegistration.Dynamic sitemesh =
-		// servletContext.addFilter("sitemesh", new
-		// ConfigurableSiteMeshFilter());
-		// sitemesh.addMappingForUrlPatterns(dispatcherTypes, true, "*.jsp");
+//
+//		FilterRegistration.Dynamic sitemesh = servletContext.addFilter("sitemesh", new SiteMeshFilter());
+//		sitemesh.addMappingForUrlPatterns(dispatcherTypes, true, "*.jsp");
+//		sitemesh.setInitParameter("contextConfigLocation", "classpath:/WEB-INF/sitemesh3.xml");
+//		sitemesh.setInitParameter("decorators-file", "classpath:/WEB-INF/sitemesh3.xml");
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 
 	}

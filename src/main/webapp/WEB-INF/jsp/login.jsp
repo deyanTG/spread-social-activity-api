@@ -89,7 +89,7 @@
 				<div class="row social-button-row">
 					<div class="col-lg-4">
 						<!-- Add Facebook sign in button -->
-						<a href="${pageContext.request.contextPath}/auth/facebook"><button
+						<a href="/social-app/auth/facebook"><button
 								class="btn btn-facebook">
 								<i class="icon-facebook"></i> |
 								<spring:message code="label.facebook.sign.in.button" />
